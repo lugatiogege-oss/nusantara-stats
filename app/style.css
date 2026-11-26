@@ -1,0 +1,277 @@
+/* Nusantara Stats — the site's own look.
+   Palette: deep forest green (land), warm amber (harvest), terracotta
+   (clay), on warm off-white paper. Serif display type, system sans body —
+   no webfonts, so the first load stays small and offline. */
+
+:root {
+  --green: #0e5e4a;
+  --green-soft: #3e7d6b;
+  --green-pale: #e4efe9;
+  --amber: #e8a33d;
+  --clay: #c65d3a;
+  --paper: #f7f5ef;
+  --card: #fffdf8;
+  --ink: #2b2620;
+  --muted: #6b655a;
+  --line: #e3ddd0;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 { font-size: 2.1rem; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.35rem; margin-bottom: 0.35rem; }
+h3 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+
+p { margin: 0 0 0.7rem; }
+a { color: var(--green); }
+a:hover { color: var(--clay); }
+
+/* ---- Header ---- */
+.site-header {
+  background: var(--green);
+  color: #fff;
+  padding: 0.9rem 0 0;
+}
+.site-header .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.brand-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.brand-name:hover { color: var(--amber); }
+.brand-tag { color: #bcd8cc; font-size: 0.9rem; }
+.site-nav {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  margin-top: 0.7rem;
+  padding-bottom: 0;
+}
+.site-nav a {
+  color: #d8e8df;
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px 8px 0 0;
+  font-size: 0.95rem;
+}
+.site-nav a:hover { color: #fff; background: rgba(255, 255, 255, 0.12); }
+.site-nav a.active {
+  background: var(--paper);
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* ---- Layout ---- */
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1.4rem 20px 2rem;
+}
+.site-footer {
+  border-top: 2px solid var(--green);
+  padding: 1.2rem 20px 2rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.site-footer p { margin-bottom: 0.3rem; }
+
+/* ---- Hero ---- */
+.hero { margin-bottom: 1.4rem; }
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--clay);
+  margin-bottom: 0.2rem;
+}
+.lede { font-size: 1.08rem; color: #453f36; max-width: 62ch; }
+
+/* ---- KPI cards ---- */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 1.4rem;
+}
+.kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--green);
+  border-radius: var(--radius);
+  padding: 0.9rem 0.95rem 0.8rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.kpi:hover { border-color: var(--green); box-shadow: 0 2px 10px rgba(14, 94, 74, 0.12); }
+.kpi:nth-child(3n) { border-top-color: var(--amber); }
+.kpi:nth-child(4n) { border-top-color: var(--clay); }
+.kpi-label { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.kpi-value { font-family: Georgia, "Times New Roman", serif; font-size: 1.7rem; font-weight: 700; line-height: 1.15; }
+.kpi-detail { font-size: 0.88rem; color: #453f36; }
+.kpi-note { font-size: 0.85rem; color: var(--muted); }
+.src { font-size: 0.78rem; color: var(--muted); }
+
+/* ---- Cards & charts ---- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+.card-sub { color: var(--muted); font-size: 0.92rem; margin: 0; }
+.chart-body svg { display: block; }
+.tabs { display: flex; gap: 6px; }
+.tab {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.32rem 0.8rem;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+.tab:hover { border-color: var(--green); }
+.tab.active { background: var(--green); border-color: var(--green); color: #fff; font-weight: 700; }
+
+/* ---- Highlights ---- */
+.highlights h2 { margin-bottom: 0.7rem; }
+.highlight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.highlight {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--amber);
+  border-radius: var(--radius);
+  padding: 0.95rem 1.05rem;
+}
+.highlight p { margin-bottom: 0.35rem; }
+
+/* ---- Tables ---- */
+.table { width: 100%; border-collapse: collapse; font-size: 0.96rem; }
+.table th, .table td { padding: 0.5rem 0.6rem; text-align: left; border-bottom: 1px solid var(--line); }
+.table th { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.table.sortable th[data-sort-key] { cursor: pointer; }
+.table.sortable th[data-sort-key]:hover { color: var(--green); }
+.table.sortable th.sorted-asc::after { content: " ▲"; color: var(--green); }
+.table.sortable th.sorted-desc::after { content: " ▼"; color: var(--green); }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+.table-wrap { overflow-x: auto; }
+.table-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.7rem;
+}
+.table-tools label { font-weight: 700; font-size: 0.92rem; }
+.table-tools input[type="search"] {
+  margin-left: 0.4rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #fff;
+  color: var(--ink);
+}
+.table-count { color: var(--muted); font-size: 0.9rem; }
+
+/* ---- Facts, trade, big stats ---- */
+.facts { list-style: none; margin: 0; padding: 0; }
+.facts li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.facts li:last-child { border-bottom: none; }
+.fact-label { font-weight: 700; min-width: 180px; }
+.fact-value { font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; font-weight: 700; }
+.fact-note { color: var(--muted); font-size: 0.9rem; }
+.big-stat {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.3rem;
+}
+.big-stat span { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 0.95rem; font-weight: 400; color: var(--ink); }
+.trade-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0.6rem 0; }
+.trade-item {
+  background: var(--green-pale);
+  border-radius: 10px;
+  padding: 0.8rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.trade-label { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.trade-value { font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; font-weight: 700; }
+.trade-note { font-size: 0.88rem; color: #453f36; }
+
+.page-note { color: var(--muted); font-size: 0.92rem; }
+.method li { margin-bottom: 0.5rem; }
+
+/* ---- Phone layout ---- */
+@media (max-width: 720px) {
+  h1 { font-size: 1.7rem; }
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .highlight-grid { grid-template-columns: 1fr; }
+  .trade-grid { grid-template-columns: 1fr; }
+  .site-nav a { padding: 0.45rem 0.55rem; font-size: 0.9rem; }
+  .card-head { flex-direction: column; }
+  .fact-label { min-width: 0; }
+  main { padding: 1rem 14px 1.6rem; }
+  .site-header .wrap { padding: 0 14px; }
+  .kpi-value { font-size: 1.35rem; }
+  .big-stat { font-size: 1.6rem; }
+}
